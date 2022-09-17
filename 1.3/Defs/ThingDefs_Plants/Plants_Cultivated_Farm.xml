@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PlantBase">
+    <defName>VFEM_Plant_Grape</defName>
+    <label>grape plant</label>
+    <description>A medium-sized vine that yields grapes when harvested - an essential ingredient in the production of wine that also tastes nice when eaten raw. Takes a long time to initially grow but can be harvested repeatedly in a single lifespan.</description>
+    <statBases>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Nutrition>0.2</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Plant/GrapePlant</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+    <ingestible />
+    <plant>
+      <fertilitySensitivity>0.7</fertilitySensitivity>
+      <growDays>19.5</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <harvestAfterGrowth>0.30</harvestAfterGrowth>
+      <harvestedThingDef>VFEM_RawGrapes</harvestedThingDef>
+      <harvestYield>12</harvestYield>
+      <sowMinSkill>5</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <topWindExposure>0.1</topWindExposure>
+      <wildOrder>2</wildOrder>
+    </plant>
+  </ThingDef>
+  
+  <!--=========================== Healroot tree ==============================-->
+
+  <ThingDef ParentName="TreeBase">
+    <defName>VFEM_Plant_TreeHealroot</defName>
+    <label>healroot tree</label>
+    <description>A tree that produces healroot, genetically engineered to disinfect its own product, and survive in slightly less-warm climates.</description>
+	<thingClass>VFEMedieval.Plant_TickerNormal</thingClass>
+	<tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Plant/HealTree</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+        <shadowData>
+          <volume>(0.15, 0.3, 0.15)</volume>
+          <offset>(0,0,-0.38)</offset>
+        </shadowData>
+    </graphicData>
+    <selectable>true</selectable>
+    <statBases>
+      <Beauty>4</Beauty>
+      <Nutrition>1.5</Nutrition>
+    </statBases>
+    <ingestible />
+    <specialDisplayRadius>5</specialDisplayRadius>
+	<comps>
+		<li Class="VFEMedieval.CompProperties_HediffGiver">
+			<radius>5</radius>
+			<hediff>VFEM_AntisepticSmell</hediff>
+			<minTicksToAffect>1000</minTicksToAffect>
+			<adjustSeverity>0.02</adjustSeverity>
+		</li>
+	</comps>
+    <plant>
+      <dieIfLeafless>true</dieIfLeafless>
+      <growDays>20</growDays>
+      <visualSizeRange>0.8~2.0</visualSizeRange>
+      <sowMinSkill>10</sowMinSkill>
+	  <sowWork>6000</sowWork>
+      <sowTags>
+        <li>Ground</li>
+      </sowTags>
+      <sowResearchPrerequisites Inherit="False">
+        <li>VFEM_TreeHealroot</li>
+      </sowResearchPrerequisites>
+      <topWindExposure>0.15</topWindExposure>
+      <mustBeWildToSow>false</mustBeWildToSow>
+      <immatureGraphicPath>Things/Plant/LeaflessHealTree</immatureGraphicPath>
+      <harvestWork>500</harvestWork>
+      <harvestTag>Standard</harvestTag>
+      <harvestYield>20</harvestYield>
+      <harvestedThingDef>MedicineHerbal</harvestedThingDef>
+      <harvestFailable>true</harvestFailable>
+      <wildClusterRadius>1</wildClusterRadius>
+      <wildClusterWeight>1</wildClusterWeight>
+	  <!-- <harvestAfterGrowth>0.8</harvestAfterGrowth> -->
+    </plant>
+   </ThingDef>
+
+</Defs>

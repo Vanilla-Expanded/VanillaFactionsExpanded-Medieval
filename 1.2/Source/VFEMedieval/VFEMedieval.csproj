@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD0467CB-B509-496E-8755-C3B86D1EE432}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VFEMedieval</RootNamespace>
+    <AssemblyName>VFEMedieval</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\1.1\Assemblies\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\2009463077\v1.1\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LoadOnDemand, Version=1.0.7184.15751, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\RimWorld.PatchOperationLoadOnDemand.1.0.0\lib\net35\LoadOnDemand.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VFECore">
+      <HintPath>..\..\..\VanillaFactionsExpanded-Core\1.1\Assemblies\VFECore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AI\WorkGivers\WorkGiver_TakeWineOutOfWineBarrel.cs" />
+    <Compile Include="AI\WorkGivers\WorkGiver_FillWineBarrel.cs" />
+    <Compile Include="AI\JobDrivers\JobDriver_TakeWineOutOfWineBarrel.cs" />
+    <Compile Include="AI\JobDrivers\JobDriver_FillWineBarrel.cs" />
+    <None Include="ArrivalActions\CaravanArrivalAction_AttackEnemyCaravan.cs" />
+    <Compile Include="ArrivalActions\CaravanArrivalAction_AttendMedievalTournament.cs" />
+    <Compile Include="BaseGen\SymbolResolver_AddMustToWineBarrels.cs" />
+    <Compile Include="BaseGen\SymbolResolver_Interior_Winery.cs" />
+    <Compile Include="BaseGen\SymbolResolver_CastleEdgeSandbags.cs" />
+    <Compile Include="BaseGen\SymbolResolver_CastleEdgeWalls.cs" />
+    <Compile Include="BaseGen\SymbolResolver_BasePart_Indoors_Leaf_Winery.cs" />
+    <Compile Include="BaseGen\SymbolResolver_MedievalEdgeDefense.cs" />
+    <Compile Include="BaseGen\SymbolResolver_MedievalSettlement.cs" />
+    <Compile Include="Comps\ThingComps\CompProperties_IngestedThoughtFromQuality.cs" />
+    <Compile Include="Comps\ThingComps\CompProperties_WineFermenter.cs" />
+    <Compile Include="Comps\ThingComps\CompIngestedThoughtFromQuality.cs" />
+    <Compile Include="Comps\ThingComps\CompWineFermenter.cs" />
+    <Compile Include="Commands\Command_SetWineTargetQuality.cs" />
+    <None Include="DefOf\SiteCoreDefOf.cs" />
+    <Compile Include="DefOf\RulePackDefOf.cs" />
+    <Compile Include="DefOf\TournamentCategoryDefOf.cs" />
+    <Compile Include="DefOf\ThingSetMakerDefOf.cs" />
+    <Compile Include="DefOf\WorldObjectDefOf.cs" />
+    <Compile Include="DefOf\RiverDefOf.cs" />
+    <Compile Include="DefOf\StuffCategoryDefOf.cs" />
+    <Compile Include="DefOf\PawnKindDefOf.cs" />
+    <Compile Include="DefOf\DamageDefOf.cs" />
+    <Compile Include="DefOf\ThingDefOf.cs" />
+    <Compile Include="DefOf\JobDefOf.cs" />
+    <Compile Include="Defs\TournamentCategoryDef.cs" />
+    <Compile Include="GenSteps\GenStep_CastleRuins.cs" />
+    <Compile Include="HarmonyPatches\Patch_BackCompatibility.cs" />
+    <Compile Include="HarmonyPatches\Patch_DrugPolicyDatabase.cs" />
+    <Compile Include="HarmonyPatches\Patch_WITab_Caravan_Gear.cs" />
+    <Compile Include="HarmonyPatches\Patch_Pawn.cs" />
+    <Compile Include="HarmonyPatches\RimCuisine2\Patch_RimCuisineBBDrugPolicies_HarmonyPatches.cs" />
+    <Compile Include="IncidentWorkers\IncidentWorker_QuestMedievalTournament.cs" />
+    <Compile Include="IncidentWorkers\IncidentWorker_BlackKnight.cs" />
+    <Compile Include="Reflection\NonPublicTypes.cs" />
+    <None Include="Utilities\EnemyCaravanUtility.cs" />
+    <Compile Include="Utilities\MedievalTournamentUtility.cs" />
+    <Compile Include="Utilities\BlackKnightUtility.cs" />
+    <Compile Include="StaticConstructorClass.cs" />
+    <Compile Include="ModCompatibilityCheck.cs" />
+    <Compile Include="Reflection\NonPublicFields.cs" />
+    <Compile Include="StockGenerators\StockGenerator_MedievalMercs.cs" />
+    <Compile Include="VFEMedieval.cs" />
+    <Compile Include="HarmonyPatches\HarmonyPatches.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="WorldObjects\EnemyCaravan.cs" />
+    <Compile Include="WorldObjects\MedievalTournament.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

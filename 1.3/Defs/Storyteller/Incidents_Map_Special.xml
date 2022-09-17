@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <IncidentDef>
+    <defName>VFEM_PursuitParty</defName>
+    <label>enemy raid</label>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>VFECore.IncidentWorker_RaidEnemySpecial</workerClass>
+    <baseChance>0</baseChance>
+    <category>ThreatBig</category>
+    <pointsScaleable>false</pointsScaleable>
+    <tale>Raid</tale>
+    <modExtensions>
+      <li Class="VFECore.IncidentDefExtension">
+        <forcedFaction>VFEM_KingdomRough</forcedFaction>
+        <forcedPointsRange>
+          <min>150</min>
+          <max>200</max>
+        </forcedPointsRange>
+        <forcedStrategy>ImmediateAttack</forcedStrategy>
+      </li>
+    </modExtensions>
+  </IncidentDef>
+
+  <IncidentDef ParentName="DiseaseIncident">
+    <defName>VFEM_Disease_BlackPlague</defName>
+    <label>plague</label>
+    <diseaseIncident>VFEM_BlackPlague</diseaseIncident>
+    <letterLabel>Disease: Black Plague</letterLabel>
+	<workerClass>VFEMedieval.IncidentWorker_BlackPlague</workerClass>
+  </IncidentDef>
+  
+</Defs>
