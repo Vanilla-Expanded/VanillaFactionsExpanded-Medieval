@@ -38,33 +38,6 @@
     <initialResistanceRange>14~22</initialResistanceRange>
   </PawnKindDef>
 
-  <!-- It's just a flesh wound! -->
-  <PawnKindDef ParentName="VFEM_Medieval_Knight">
-    <defName>VFEM_BlackKnight</defName>
-    <label>black knight</label>
-    <defaultFactionType>VFEM_UnknownKingdomHostile</defaultFactionType>
-    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-    <weaponMoney>
-      <min>300</min>
-      <max>300</max>
-    </weaponMoney>
-    <weaponTags Inherit="False">
-      <li>VFEClaymore</li>
-    </weaponTags>
-    <techHediffsMoney>
-      <min>9999</min>
-      <max>9999</max>
-    </techHediffsMoney>
-    <techHediffsTags>
-      <li>Painstopper</li>
-    </techHediffsTags>
-    <apparelColor>(30,30,30)</apparelColor>
-    <techHediffsChance>1</techHediffsChance>
-    <modExtensions Inherit="False"/>
-    <initialWillRange>2~4</initialWillRange>
-    <initialResistanceRange>14~25</initialResistanceRange>
-  </PawnKindDef>
-
   <!-- Medieval equivalent of man in black -->
   <PawnKindDef ParentName="VFEM_Medieval_Knight">
     <defName>VFEM_KnightInBlack</defName>
