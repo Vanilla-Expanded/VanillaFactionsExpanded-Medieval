@@ -73,10 +73,8 @@
     <Compile Include="HarmonyPatches\Patch_BackCompatibility.cs" />
     <Compile Include="HarmonyPatches\Patch_DrugPolicyDatabase.cs" />
     <Compile Include="HarmonyPatches\Patch_WITab_Caravan_Gear.cs" />
-    <Compile Include="HarmonyPatches\Patch_Pawn.cs" />
     <Compile Include="HarmonyPatches\RimCuisine2\Patch_RimCuisineBBDrugPolicies_HarmonyPatches.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_BlackPlague.cs" />
-    <Compile Include="IncidentWorkers\IncidentWorker_BlackKnight.cs" />
     <Compile Include="Jobs\JobDriver_DigTerrain.cs" />
     <Compile Include="Jobs\JobDriver_FillTerrain.cs" />
     <Compile Include="Jobs\JobDriver_PlayArchery.cs" />
@@ -87,7 +85,6 @@
     <Compile Include="Sites\SitePartWorker_Skirmish.cs" />
     <Compile Include="Things\Plant_TickerNormal.cs" />
     <Compile Include="Utilities\VFEMUtility.cs" />
-    <Compile Include="Utilities\BlackKnightUtility.cs" />
     <Compile Include="StaticConstructorClass.cs" />
     <Compile Include="ModCompatibilityCheck.cs" />
     <Compile Include="Reflection\NonPublicFields.cs" />
