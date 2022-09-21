@@ -34,7 +34,7 @@
             <li>Silver</li>
          </scatterThings>
          <scatterChance>0.02</scatterChance>
-         <ruinSymbolResolvers>
+         <symbolResolvers>
             <li>kcsg_randomdamage</li>
             <li>kcsg_randomfilth</li>
             <li>kcsg_randomterrainremoval</li>
@@ -43,7 +43,7 @@
             <li>kcsg_removeperishable</li>
             <li>kcsg_destroyrefuelablelightsource</li>
             <li>kcsg_scatterstuffaround</li>
-         </ruinSymbolResolvers>
+         </symbolResolvers>
       </genStep>
    </GenStepDef>
 </Defs>
