@@ -135,7 +135,8 @@
           <max>1</max>
         </countRange>
       </li>
-      <li Class="StockGenerator_Art">
+      <li Class="StockGenerator_MarketValue">
+	    <tradeTag>Art</tradeTag>
         <countRange>
           <min>6</min>
           <max>12</max>
@@ -181,15 +182,17 @@
           <max>1200</max>
         </countRange>
       </li>
-      <li Class="StockGenerator_Clothes">
+      <li Class="StockGenerator_MarketValue">
         <maxTechLevelGenerate>Medieval</maxTechLevelGenerate>
+		<tradeTag>BasicClothing</tradeTag>
         <countRange>
           <min>4</min>
           <max>6</max>
         </countRange>
       </li>
-      <li Class="StockGenerator_Armor">
+      <li Class="StockGenerator_MarketValue">
         <maxTechLevelGenerate>Medieval</maxTechLevelGenerate>
+		<tradeTag>Armor</tradeTag>
         <countRange>
           <min>6</min>
           <max>10</max>
@@ -236,8 +239,9 @@
           <max>200</max>
         </countRange>
       </li>
-      <li Class="StockGenerator_WeaponsRanged">
+      <li Class="StockGenerator_MarketValue">
         <maxTechLevelGenerate>Medieval</maxTechLevelGenerate>
+		<tradeTag>WeaponRanged</tradeTag>
         <countRange>
           <min>4</min>
           <max>4</max>
