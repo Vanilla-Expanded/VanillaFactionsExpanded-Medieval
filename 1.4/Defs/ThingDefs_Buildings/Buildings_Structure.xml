@@ -35,6 +35,7 @@
       <blueprintGraphicData>
         <texPath>Things/Building/Linked/RockWall/RockWall_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
+	  <paintable>true</paintable>
     </building>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <altitudeLayer>Building</altitudeLayer>
@@ -119,6 +120,7 @@
       <blueprintGraphicData>
         <texPath>Things/Building/Linked/RockLowWall/RockLowWall_Blueprint_Atlas</texPath>
       </blueprintGraphicData>
+	  <paintable>true</paintable>
     </building>
     <placingDraggableDimensions>1</placingDraggableDimensions>
     <costStuffCount>1</costStuffCount>
