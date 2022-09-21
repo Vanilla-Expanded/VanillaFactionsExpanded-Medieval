@@ -33,7 +33,7 @@
 			<li>VFEM_Apparel_PlagueMask</li>
 		</apparelsPreventingSpreading>
 		<statsPreventingSpreading>
-			<ToxicSensitivity>0.8</ToxicSensitivity>
+			<ToxicResistance>0.8</ToxicResistance>
 		</statsPreventingSpreading>
 		<fleckDefOnPawn>AirPuff</fleckDefOnPawn>
 		<fleckSpawnInterval>5~10</fleckSpawnInterval>
