@@ -24,7 +24,6 @@
             <li>VFEM_Castle5</li>
             <li>VFEM_Castle6</li>
          </structureLayoutDefs>
-         <shouldRuin>true</shouldRuin>
          <filthTypes>
             <li>Filth_Dirt</li>
             <li>Filth_Trash</li>
