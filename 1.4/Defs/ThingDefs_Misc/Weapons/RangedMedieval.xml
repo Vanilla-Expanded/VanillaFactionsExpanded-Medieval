@@ -47,7 +47,7 @@
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>VFEM_Arrow_HeavyBolt</defaultProjectile>
         <warmupTime>2</warmupTime>
-        <range>17.9</range>
+        <range>23.9</range>
         <soundCast>VFEM_Shot_HeavyCrossbow</soundCast>
       </li>
     </verbs>
@@ -74,9 +74,9 @@
     <projectile>
       <flyOverhead>false</flyOverhead>
       <damageDef>Arrow</damageDef>
-      <damageAmountBase>32</damageAmountBase>
+      <damageAmountBase>22</damageAmountBase>
       <stoppingPower>2</stoppingPower>
-	  <armorPenetrationBase>0.86</armorPenetrationBase>
+	  <armorPenetrationBase>0.25</armorPenetrationBase>
       <speed>48</speed>
     </projectile>
   </ThingDef>
