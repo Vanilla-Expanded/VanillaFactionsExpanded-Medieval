@@ -32,7 +32,7 @@ namespace VFEMedieval
                     merc.Name = new NameTriple(name.First, "Geralt", name.Last);
 
                     // Make the hair white
-                    merc.story.hairColor = Color.white;
+                    merc.story.HairColor = Color.white;
 
                     // Replace equipment with a silver sword
                     merc.equipment.DestroyAllEquipment();

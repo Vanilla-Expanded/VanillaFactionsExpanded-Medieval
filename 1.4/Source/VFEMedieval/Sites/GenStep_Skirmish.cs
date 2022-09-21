@@ -38,7 +38,7 @@ namespace VFEMedieval
                 {
                     if (allVerbs[i].verbProps.isPrimary)
                     {
-                        return allVerbs[i].IsIncendiary();
+                        return allVerbs[i].IsIncendiary_Ranged() || allVerbs[i].IsIncendiary_Melee();
                     }
                 }
             }
