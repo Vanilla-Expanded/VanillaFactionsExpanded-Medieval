@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-
-    <!-- If Editable Backstories is loaded, make the medieval factions use medieval backstories -->
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>[RF] Editable Backstories and Names - 1.1</li>
-        </mods>
-        <match Class="PatchOperationReplace">
-            <xpath>/Defs/FactionDef[@Name="VFEM_MedievalFactionBase"]/backstoryCategories/li[text()="Tribal"]</xpath>
-            <value>
-                <li>Medieval</li>
-            </value>
-        </match>
-    </Operation>
-
-    <!-- Musketeer is no longer added if Vanilla Weapons Expanded is loaded -->
-
-    <!-- If Vanilla Furniture Expanded - Security is loaded, medieval factions can siege -->
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>Vanilla Furniture Expanded - Security</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/FactionDef[@Name="VFEM_MedievalFactionBase"]</xpath>
-                    <value>
-                        <canSiege>true</canSiege>
-                    </value>
-                </li>
-
-                <li Class="PatchOperationAdd"> <xpath>/Defs/FactionDef[@Name="VFEM_MedievalFactionBase"]/modExtensions</xpath>
-			<value>
-			<li Class="VFECore.FactionDefExtension">
-			<siegeParameterSet>VFEM_Medieval</siegeParameterSet>
-			</li>
-			</value>
-			</li>
-
-            </operations>
-        </match>
-    </Operation>
-
+  <!-- If Editable Backstories is loaded, make the medieval factions use medieval backstories -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>[RF] Editable Backstories and Names - 1.1</li>
+    </mods>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/FactionDef[@Name="VFEM_MedievalFactionBase"]/backstoryCategories/li[text()="Tribal"]</xpath>
+      <value>
+        <li>Medieval</li>
+      </value>
+    </match>
+  </Operation>
+  <!-- If Vanilla Furniture Expanded - Security is loaded, medieval factions can siege -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Vanilla Furniture Expanded - Security</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VFECore.SiegeParameterSetDef>
+              <defName>VFEM_Medieval</defName>
+              <coverDef>Barricade</coverDef>
+              <artilleryBuildingTags>
+                <li>ArtilleryMedieval_BaseDestroyer</li>
+              </artilleryBuildingTags>
+              <artilleryCountRange>1~2</artilleryCountRange>
+              <mealDef>Pemmican</mealDef>
+            </VFECore.SiegeParameterSetDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/FactionDef[@Name="VFEM_MedievalFactionBase"]</xpath>
+          <value>
+            <canSiege>true</canSiege>
+          </value>
+        </li>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>/Defs/FactionDef[@Name="VFEM_MedievalFactionBase"]</xpath>
+          <value>
+            <li Class="VFECore.FactionDefExtension">
+              <siegeParameterSet>VFEM_Medieval</siegeParameterSet>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
 </Patch>
