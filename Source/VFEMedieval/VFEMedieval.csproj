@@ -18,7 +18,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.4\Assemblies\</OutputPath>
     <DefineConstants>
     </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -37,9 +37,11 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,7 +50,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VFECore">
       <HintPath>..\Refs\VFECore.dll</HintPath>
@@ -70,10 +73,8 @@
     <Compile Include="HarmonyPatches\Patch_BackCompatibility.cs" />
     <Compile Include="HarmonyPatches\Patch_DrugPolicyDatabase.cs" />
     <Compile Include="HarmonyPatches\Patch_WITab_Caravan_Gear.cs" />
-    <Compile Include="HarmonyPatches\Patch_Pawn.cs" />
     <Compile Include="HarmonyPatches\RimCuisine2\Patch_RimCuisineBBDrugPolicies_HarmonyPatches.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_BlackPlague.cs" />
-    <Compile Include="IncidentWorkers\IncidentWorker_BlackKnight.cs" />
     <Compile Include="Jobs\JobDriver_DigTerrain.cs" />
     <Compile Include="Jobs\JobDriver_FillTerrain.cs" />
     <Compile Include="Jobs\JobDriver_PlayArchery.cs" />
@@ -84,7 +85,6 @@
     <Compile Include="Sites\SitePartWorker_Skirmish.cs" />
     <Compile Include="Things\Plant_TickerNormal.cs" />
     <Compile Include="Utilities\VFEMUtility.cs" />
-    <Compile Include="Utilities\BlackKnightUtility.cs" />
     <Compile Include="StaticConstructorClass.cs" />
     <Compile Include="ModCompatibilityCheck.cs" />
     <Compile Include="Reflection\NonPublicFields.cs" />
@@ -94,11 +94,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.3.3063-beta</Version>
-    </PackageReference>
     <PackageReference Include="Lib.Harmony" ExcludeAssets="runtime">
-      <Version>2.1.0</Version>
+      <Version>2.2.2</Version>
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
