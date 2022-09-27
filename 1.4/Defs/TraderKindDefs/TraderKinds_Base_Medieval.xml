@@ -152,7 +152,7 @@
             </li>
             <li Class="StockGenerator_MarketValue">
                 <maxTechLevelGenerate>Medieval</maxTechLevelGenerate>
-				<tradeTag>WeaponsRanged</tradeTag>
+				<tradeTag>WeaponRanged</tradeTag>
                 <countRange>
                     <min>4</min>
                     <max>6</max>
