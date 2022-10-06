@@ -87,7 +87,6 @@
             <Mass>2.5</Mass>
         </statBases>
         <comps>
-            <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
             <li Class="VFECore.CompProperties_Shield">
                 <shieldTags>
                     <li>MedievalBasic</li>
@@ -148,7 +147,6 @@
             <Mass>4</Mass>
         </statBases>
         <comps>
-            <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
             <li Class="VFECore.CompProperties_Shield">
                 <shieldTags>
                     <li>MedievalDecent</li>
