@@ -149,7 +149,6 @@
         <li>Overhead</li>
       </layers>
       <tags>
-        <li>MedievalApparelBasic</li>
 		<li>Jester</li>
       </tags>
       <defaultOutfitTags>
@@ -215,7 +214,7 @@
         <li>Overhead</li>
       </layers>
       <tags>
-        <li>MedievalApparelBasic</li>
+        <li>MedievalApparelNoble</li>
 		<li>Dame</li>
       </tags>
       <defaultOutfitTags>
@@ -298,7 +297,6 @@
         <li>Overhead</li>
       </layers>
       <tags>
-        <li>MedievalApparelBasic</li>
 		<li>King</li>
       </tags>
       <defaultOutfitTags>
