@@ -26,6 +26,7 @@ namespace VFEMedieval
         public static TerrainAffordanceDef VFEM_Moatable;
 
         public static SitePartDef VFE_Skirmish;
+        public static ThingDef VFEM_ArcheryTarget;
     }
 
     [DefOf]

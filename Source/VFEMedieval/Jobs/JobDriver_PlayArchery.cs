@@ -1,10 +1,20 @@
 ﻿using HarmonyLib;
 using RimWorld;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 
 namespace VFEMedieval
 {
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+    public class HotSwappableAttribute : Attribute
+    {
+    }
+
+    [HotSwappableAttribute]
 	public class JobDriver_PlayArchery : JobDriver_WatchBuilding
 	{
 		Thing bow;
@@ -15,6 +25,14 @@ namespace VFEMedieval
 				ThrowObjectAt(pawn, base.TargetA.Cell, VFEM_DefOf.VFEM_ArrowThrowable);
 			}
 			base.WatchTickAction();
+		}
+
+		public delegate bool EverPossibleToWatchFrom(IntVec3 watchCell, IntVec3 buildingCenter, Map map, bool bedAllowed, ThingDef def);
+        public static readonly EverPossibleToWatchFrom everPossibleToWatchFrom = AccessTools.MethodDelegate<EverPossibleToWatchFrom>(AccessTools.Method(typeof(WatchBuildingUtility), "EverPossibleToWatchFrom"));
+        protected override IEnumerable<Toil> MakeNewToils()
+		{
+			this.FailOn(() => everPossibleToWatchFrom(this.TargetB.Cell, this.TargetA.Cell, pawn.Map, false, TargetA.Thing.def) is false);
+			return base.MakeNewToils();
 		}
 
 		public void DrawEquipment(Vector3 rootLoc, Rot4 pawnRotation, PawnRenderFlags flags)
@@ -72,19 +90,27 @@ namespace VFEMedieval
 		}
 		private static void ThrowObjectAt(Pawn thrower, IntVec3 targetCell, FleckDef fleck)
 		{
-			if (thrower.Position.ShouldSpawnMotesAt(thrower.Map))
-			{
-				float num = Rand.Range(9.8f, 15.6f);
-				Vector3 vector = targetCell.ToVector3Shifted() + Vector3Utility.RandomHorizontalOffset((1f - (float)thrower.skills.GetSkill(SkillDefOf.Shooting).Level / 20f) * 1.8f);
-				vector.y = thrower.DrawPos.y;
-				FleckCreationData dataStatic = FleckMaker.GetDataStatic(thrower.DrawPos, thrower.Map, fleck);
-				dataStatic.rotationRate = 0;
-				dataStatic.rotation = thrower.Rotation.AsAngle;
-				dataStatic.velocityAngle = (vector - dataStatic.spawnPosition).AngleFlat();
-				dataStatic.velocitySpeed = num;
-				dataStatic.airTimeLeft = Mathf.RoundToInt((dataStatic.spawnPosition - vector).MagnitudeHorizontal() / num);
-				thrower.Map.flecks.CreateFleck(dataStatic);
-			}
-		}
-	}
+			var targetPos = targetCell.ToVector3Shifted().Yto0();
+            float num = Rand.Range(8f, 10f);
+            Vector3 vector = targetPos +
+                RandomHorizontalOffset(thrower, targetCell,
+                (1f - (float)thrower.skills.GetSkill(SkillDefOf.Shooting).Level / 20f));
+            vector.y = thrower.DrawPos.y;
+            FleckCreationData dataStatic = FleckMaker.GetDataStatic(thrower.DrawPos, thrower.Map, fleck);
+            dataStatic.rotationRate = 0;
+            dataStatic.rotation = thrower.Rotation.AsAngle;
+            dataStatic.velocityAngle = (vector - dataStatic.spawnPosition).AngleFlat();
+            dataStatic.velocitySpeed = num;
+            dataStatic.airTimeLeft = Mathf.RoundToInt((dataStatic.spawnPosition - vector).MagnitudeHorizontal() / (num));
+            thrower.Map.flecks.CreateFleck(dataStatic);
+        }
+
+        public static Vector3 RandomHorizontalOffset(Pawn caster, IntVec3 targetCell, float maxDist)
+        {
+            float num = Rand.Range(0f, maxDist);
+			var angle = (caster.TrueCenter().Yto0() - targetCell.ToVector3Shifted().Yto0()).AngleFlat();
+            float y = Rand.Range(angle - 115, angle + 115);
+            return Quaternion.Euler(new Vector3(0f, y, 0f)) * Vector3.forward * num;
+        }
+    }
 }

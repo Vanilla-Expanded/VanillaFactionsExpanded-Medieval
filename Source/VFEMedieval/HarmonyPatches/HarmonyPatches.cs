@@ -54,6 +54,26 @@ namespace VFEMedieval
         }
     }
 
+    [HarmonyPatch(typeof(WatchBuildingUtility), "EverPossibleToWatchFrom")]
+    public static class WatchBuildingUtility_EverPossibleToWatchFrom_Patch
+    {
+        public static void Postfix(ref bool __result, IntVec3 watchCell, IntVec3 buildingCenter, Map map, bool bedAllowed, ThingDef def)
+        {
+            if (__result && def == VFEM_DefOf.VFEM_ArcheryTarget)
+            {
+                foreach (var cell in GenSight.PointsOnLineOfSight(watchCell, buildingCenter))
+                {
+                    var plant = cell.GetPlant(map);
+                    if (plant != null && plant.def.plant.IsTree)
+                    {
+                        Log.Message("Cannot watch, tree is obstructing");
+                        __result = false;
+                    }
+                }
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(SettlementUtility), "AffectRelationsOnAttacked")]
     internal static class Patch_AffectRelationsOnAttacked
     {
