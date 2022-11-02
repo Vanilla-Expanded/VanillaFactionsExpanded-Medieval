@@ -48,6 +48,13 @@
       <Structure_OriginHindu MayRequire="Ludeon.RimWorld.Ideology">0</Structure_OriginHindu>
       <Structure_OriginBuddhist MayRequire="Ludeon.RimWorld.Ideology">0</Structure_OriginBuddhist>
     </structureMemeWeights>
+    <xenotypeSet>
+      <xenotypeChances>
+        <Neanderthal MayRequire="Ludeon.RimWorld.Biotech">0.025</Neanderthal>
+        <Hussar MayRequire="Ludeon.RimWorld.Biotech">0.1</Hussar>
+        <Dirtmole MayRequire="Ludeon.RimWorld.Biotech">0.15</Dirtmole>
+      </xenotypeChances>
+    </xenotypeSet>
     <techLevel>Medieval</techLevel>
     <backstoryCategories>
       <li>Tribal</li>
