@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Giddy-Up 2 (temporary beta)</li>
+			<li>Giddy-Up 2</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/PawnKindDef[defName="VFEM_Medieval_Lord"]</xpath>
+					<value>
+						<li Class="GiddyUp.CustomMounts">
+							<mountChance>85</mountChance>
+							<possibleMounts>
+								<li>
+									<key>Horse</key>
+									<value>90</value>
+								</li>
+								<li>
+									<key>Thrumbo</key>
+									<value>10</value>
+								</li>
+							</possibleMounts>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/PawnKindDef[defName="VFEM_Medieval_King"]</xpath>
+					<value>
+						<li Class="GiddyUp.CustomMounts">
+							<mountChance>100</mountChance>
+							<possibleMounts>
+								<li>
+									<key>Horse</key>
+									<value>10</value>
+								</li>
+								<li>
+									<key>Thrumbo</key>
+									<value>90</value>
+								</li>
+							</possibleMounts>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/PawnKindDef[defName="VFEM_Medieval_Bowman"]</xpath>
+					<value>
+						<li Class="GiddyUp.CustomMounts">
+							<mountChance>25</mountChance>
+							<possibleMounts>
+								<li>
+									<key>Horse</key>
+									<value>75</value>
+								</li>
+								<li>
+									<key>Donkey</key>
+									<value>25</value>
+								</li>
+							</possibleMounts>
+						</li>
+					</value>
+				</li>
+				<!-- This was just going to be an edit to knight, however knight is a parent node and the child kinds were adopting the mount chances -->
+				<li Class="PatchOperationAdd">
+					<xpath>Defs</xpath>
+					<value>
+						<PawnKindDef ParentName="VFEM_Medieval_Knight">
+							<defName>VFEM_Medieval_Calvary</defName>
+							<label>calvary</label>
+							<combatPower>130</combatPower>
+							<apparelMoney>
+								<min>1200</min>
+								<max>1800</max>
+							</apparelMoney>
+							<weaponMoney>
+								<min>400</min>
+								<max>400</max>
+							</weaponMoney>
+							<modExtensions>
+								<li Class="GiddyUp.CustomMounts">
+								<mountChance>100</mountChance>
+								<possibleMounts>
+									<li>
+										<key>Horse</key>
+										<value>100</value>
+									</li>
+								</possibleMounts>
+							</li>
+						</modExtensions>
+					</PawnKindDef>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/FactionDef[@Name="VFEM_MedievalFactionBase"]/pawnGroupMakers//options[*[name()="VFEM_Medieval_Knight"]]</xpath>
+				<value>
+					<VFEM_Medieval_Calvary>20</VFEM_Medieval_Calvary>
+				</value>
+			</li>
+		</operations>
+		</match>
+	</Operation>
+</Patch>
