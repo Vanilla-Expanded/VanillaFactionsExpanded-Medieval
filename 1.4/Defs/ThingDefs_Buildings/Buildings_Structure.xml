@@ -133,7 +133,7 @@
     <neverMultiSelect>true</neverMultiSelect>
     <useStuffTerrainAffordance>true</useStuffTerrainAffordance>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Structure</designationCategory>
+    <designationCategory>Security</designationCategory>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
   </ThingDef>
 
