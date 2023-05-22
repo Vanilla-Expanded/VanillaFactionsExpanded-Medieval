@@ -2,15 +2,17 @@
 <Defs>
 	<VFEMedieval.TerrainListDef>
 		<defName>VFEM_MoatableTerrain</defName>
-		<terrainDefs>
-			<li>WaterShallow</li>
-			<li>Marsh</li>
-			<li>SoftSand</li>
-			<li>Sand</li>
-			<li>Soil</li>
-			<li>Gravel</li>
-			<li>MossyTerrain</li>
-			<li>MarshyTerrain</li>
-		</terrainDefs>
+		<terrainPairsDefault>
+			<li><from>Marsh</from><to>WaterShallow</to></li>
+			<li><from>SoftSand</from><to>Sand</to></li>
+			<li><from>Sand</from><to>Gravel</to></li>
+			<li><from>Soil</from><to>SoftSand</to></li>
+			<li><from>Gravel</from><to>MossyTerrain</to></li>
+			<li><from>MossyTerrain</from><to>MarshyTerrain</to></li>
+			<li><from>MarshyTerrain</from><to>Marsh</to></li>
+		</terrainPairsDefault>
+		<terrainPairsByBiomes>
+
+		</terrainPairsByBiomes>
 	</VFEMedieval.TerrainListDef>
 </Defs>

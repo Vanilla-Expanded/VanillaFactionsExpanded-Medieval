@@ -40,40 +40,40 @@ namespace VFEMedieval
 		}
 
 		protected override void DoEffect(IntVec3 c)
-		{
-			TerrainDef localTerrain = base.TargetLocA.GetTerrain(base.Map);
-			TerrainDef newTerrain = null;
-
-			switch (localTerrain.ToString())
+        {
+            TerrainDef newTerrain = GetNewTerrain(base.TargetLocA, base.Map);
+            base.Map.terrainGrid.SetTerrain(base.TargetLocA, newTerrain);
+            FilthMaker.RemoveAllFilth(base.TargetLocA, base.Map);
+        }
+        public static TerrainDef GetNewTerrain(IntVec3 cell, Map map)
+        {
+            TerrainDef localTerrain = cell.GetTerrain(map);
+            if (VFEM_DefOf.VFEM_MoatableTerrain.terrainPairsByBiomes != null)
 			{
-				case null:
-					Log.Error("No terrain found!");
-					break;
-				case "Soil":
-					newTerrain = TerrainDef.Named("SoftSand");
-					break;
-				case "SoftSand":
-					newTerrain = TerrainDef.Named("Sand");
-					break;
-				case "Sand":
-					newTerrain = TerrainDef.Named("Gravel");
-					break;
-				case "Gravel":
-					newTerrain = TerrainDef.Named("MossyTerrain");
-					break;
-				case "MossyTerrain":
-					newTerrain = TerrainDef.Named("MarshyTerrain");
-					break;
-				case "MarshyTerrain":
-					newTerrain = TerrainDef.Named("Marsh");
-					break;
-				case "Marsh":
-					newTerrain = TerrainDef.Named("WaterShallow");
-					break;
+				foreach (var entry in VFEM_DefOf.VFEM_MoatableTerrain.terrainPairsByBiomes)
+				{
+					if (entry.biome == map.Biome)
+					{
+                        foreach (var terrainPair in entry.terrainPairs)
+                        {
+                            if (terrainPair.from == localTerrain)
+                            {
+                                return terrainPair.to;
+                            }
+                        }
+                    }
+				}
 			}
 
-			base.Map.terrainGrid.SetTerrain(base.TargetLocA, newTerrain);
-			FilthMaker.RemoveAllFilth(base.TargetLocA, base.Map);
-		}
-	}
+            foreach (var terrainPair in VFEM_DefOf.VFEM_MoatableTerrain.terrainPairsDefault)
+            {
+                if (terrainPair.from == localTerrain)
+                {
+                    return terrainPair.to;
+                }
+            }
+
+            throw new Exception("No matching terrain found to create from " + localTerrain);
+        }
+    }
 }

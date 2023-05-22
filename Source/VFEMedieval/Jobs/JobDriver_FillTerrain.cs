@@ -41,33 +41,40 @@ namespace VFEMedieval
 
 		protected override void DoEffect(IntVec3 c)
 		{
-			TerrainDef localTerrain = base.TargetLocA.GetTerrain(base.Map);
-			TerrainDef newTerrain = null;
-
-			switch (localTerrain.ToString())
-			{
-				case null:
-					Log.Error("No terrain found!");
-					break;
-				case "SoftSand":
-					newTerrain = TerrainDef.Named("Soil");
-					break;
-				case "Sand":
-					newTerrain = TerrainDef.Named("SoftSand");
-					break;
-				case "Gravel":
-					newTerrain = TerrainDef.Named("Sand");
-					break;
-				case "MossyTerrain":
-					newTerrain = TerrainDef.Named("Gravel");
-					break;
-				case "MarshyTerrain":
-					newTerrain = TerrainDef.Named("MossyTerrain");
-					break;
-			}
-
+			TerrainDef newTerrain = GetNewTerrain(base.TargetLocA, base.Map);
 			base.Map.terrainGrid.SetTerrain(base.TargetLocA, newTerrain);
 			FilthMaker.RemoveAllFilth(base.TargetLocA, base.Map);
 		}
-	}
+
+        public static TerrainDef GetNewTerrain(IntVec3 cell, Map map)
+        {
+            TerrainDef localTerrain = cell.GetTerrain(map);
+            if (VFEM_DefOf.VFEM_MoatableTerrain.terrainPairsByBiomes != null)
+            {
+                foreach (var entry in VFEM_DefOf.VFEM_MoatableTerrain.terrainPairsByBiomes)
+                {
+                    if (entry.biome == map.Biome)
+                    {
+                        foreach (var terrainPair in entry.terrainPairs)
+                        {
+                            if (terrainPair.to == localTerrain)
+                            {
+                                return terrainPair.from;
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var terrainPair in VFEM_DefOf.VFEM_MoatableTerrain.terrainPairsDefault)
+            {
+                if (terrainPair.to == localTerrain)
+                {
+                    return terrainPair.from;
+                }
+            }
+
+            throw new Exception("No matching terrain found to create from " + localTerrain);
+        }
+    }
 }
