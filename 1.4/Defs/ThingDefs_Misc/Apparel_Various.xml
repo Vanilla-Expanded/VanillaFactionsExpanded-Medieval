@@ -99,12 +99,12 @@
     <colorGenerator Class="ColorGenerator_StandardApparel" />
 	<modExtensions>
 		<li Class="VFECore.ApparelDrawPosExtension">
-			<shellPosDrawSettings>
-				<drawPosNorthOffset>(0, 0.001, 0)</drawPosNorthOffset>
-				<drawPosSouthOffset>(0, 0.001, 0)</drawPosSouthOffset>
-				<drawPosWestOffset>(0, 0.001, 0)</drawPosWestOffset>
-				<drawPosEastOffset>(0, 0.001, 0)</drawPosEastOffset>
-			</shellPosDrawSettings>
+			<apparelDrawSettings>
+				<drawPosNorthOffset>(0, 0.01, 0)</drawPosNorthOffset>
+				<drawPosSouthOffset>(0, 0.01, 0)</drawPosSouthOffset>
+				<drawPosWestOffset>(0, 0.01, 0)</drawPosWestOffset>
+				<drawPosEastOffset>(0, 0.01, 0)</drawPosEastOffset>
+			</apparelDrawSettings>
 		</li>
 	</modExtensions>
   </ThingDef>
