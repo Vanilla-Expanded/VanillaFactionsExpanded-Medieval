@@ -100,10 +100,10 @@
 	<modExtensions>
 		<li Class="VFECore.ApparelDrawPosExtension">
 			<apparelDrawSettings>
-				<drawPosNorthOffset>(0, 0.007, 0)</drawPosNorthOffset>
-				<drawPosSouthOffset>(0, 0.007, 0)</drawPosSouthOffset>
-				<drawPosWestOffset>(0, 0.007, 0)</drawPosWestOffset>
-				<drawPosEastOffset>(0, 0.007, 0)</drawPosEastOffset>
+				<yLayerSouthOverride>8.535</yLayerSouthOverride>
+				<yLayerWestOverride>8.535</yLayerWestOverride>
+				<yLayerEastOverride>8.535</yLayerEastOverride>
+				<yLayerNorthOverride>8.54</yLayerNorthOverride>
 			</apparelDrawSettings>
 		</li>
 	</modExtensions>
