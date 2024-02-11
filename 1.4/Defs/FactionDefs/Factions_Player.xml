@@ -18,6 +18,9 @@
     <playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
     <factionNameMaker>VFEM_NamerFactionMedieval</factionNameMaker>
     <settlementNameMaker>VFEM_NamerSettlementMedieval</settlementNameMaker>
+    <allowedCultures>
+      <li>Corunan</li>
+    </allowedCultures>
     <startingResearchTags>
       <li>TribalStart</li>
       <li>VFEM_MedievalStart</li>
